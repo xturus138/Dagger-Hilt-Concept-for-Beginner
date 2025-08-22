@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.activity:activity-ktx:1.10.1")
     implementation("com.google.dagger:hilt-android:2.56.2")
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
     implementation(libs.androidx.core.ktx)

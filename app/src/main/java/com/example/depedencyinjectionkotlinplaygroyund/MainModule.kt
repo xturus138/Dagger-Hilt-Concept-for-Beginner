@@ -14,13 +14,13 @@ import javax.inject.Singleton
 @InstallIn(ActivityComponent::class)
 object MainModule {
 
-    @ActivityScoped
-    @Provides
-    fun provideEngine(
-        @ApplicationContext context: Context,
-        @Named("owner") owner: String //injeksi di dalam injeksi
-    ): Engine{
-        return Engine(context, owner)
-    }
+//    @ActivityScoped
+//    @Provides
+//    fun provideEngine(
+//        @ApplicationContext context: Context,
+//        @Named("owner") owner: String //injeksi di dalam injeksi
+//    ): Engine{
+//        return Engine(context, owner)
+//    }
 
 }
