@@ -1,9 +1,11 @@
 package com.example.depedencyinjectionkotlinplaygroyund
 
-class Engine {
+import android.content.Context
+
+class Engine(private val context: Context, private val owner: String) {
 
     fun startEngine(){
-        println("Engine Started")
+        println( "${ context.getString(R.string.engine_started)} by $owner")
     }
 
 }

@@ -1,8 +1,10 @@
 package com.example.depedencyinjectionkotlinplaygroyund
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
 import javax.inject.Singleton
@@ -11,11 +13,19 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class) //SingletonComponent menandakan bahwa modul-modul injeksi ini akan berjalan selama aplikasi ini hidup
 object AppModule {
 
-    @Singleton //ini tidak wajib, tapi kalo kita nambahin anotasi ini maka objek engine ini hanya dibuat 1x selama aplikasi ini berjalan
-    @Provides //Ini anotasi untuk memberi tahu hilt kalo fungsi ini adalah modul yang harus di inject
-    fun provideEngine(): Engine{
-        return Engine()
+
+    @Provides
+    fun provideEngine(
+        @ApplicationContext context: Context,
+        @Named("owner") owner: String //injeksi di dalam injeksi
+    ): Engine{
+        return Engine(context, owner)
     }
+
+    @Singleton
+    @Provides
+    @Named("owner")
+    fun ProvidesOwner() = "Raditya"
 
     @Singleton
     @Provides

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Depedency Injection Kotlin Playgroyund</string>
+    <string name="engine_started">Engine Started</string>
 </resources>
